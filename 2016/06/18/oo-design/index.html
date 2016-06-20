@@ -102,7 +102,7 @@ Abstract out the common code.
 
 OCPOpen-closed principle
 “Software entities (classes, module">
-<meta property="og:updated_time" content="2016-06-20T03:05:08.000Z">
+<meta property="og:updated_time" content="2016-06-20T03:06:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective Oriented Design">
 <meta name="twitter:description" content="SRPSingle Responsibility PrincipleEvery class should have only one responsibility.
@@ -316,7 +316,7 @@ OCPOpen-closed principle
 <p>In this case, every time we want to add a new shappe, we need to modify draw() function.</p>
 <p>OCP approach:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">abstract class Shape &#123;</span><br><span class="line">  abstract void draw();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Circle extends Shape &#123;</span><br><span class="line">	void draw() &#123;</span><br><span class="line">		//override abstract draw();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Rectangular extens Shape &#123;</span><br><span class="line">	void draw() &#123;</span><br><span class="line">		//override abstract draw();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void drawShape(Shape shape) &#123;</span><br><span class="line">	shape.draw();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我的理解：P函数对A、B类进行类似的操作，应该要考虑到需要添加C类时，不应该要修改P，而只要添加C即可。（confucius对module的处理：如果需要添加一个module，只要在confucius中添加module即可，不需要改动panopticon和confucius其它地方）。 </p>
+<p>P函数对A、B类进行类似的操作，应该要考虑到需要添加C类时，不应该要修改P，而只要添加C即可。（confucius对module的处理：如果需要添加一个module，只要在confucius中添加module即可，不需要改动panopticon和confucius其它地方）。 </p>
 
       
     </div>
