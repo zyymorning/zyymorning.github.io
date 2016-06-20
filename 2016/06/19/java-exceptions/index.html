@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,exception,design,effective java," />
 
 
 
@@ -84,15 +84,21 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="What?!">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="Exceptions in JavaIn Java, exceptions can be checked or unchecked.
+Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the me">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-exceptions">
+<meta property="og:url" content="http://yoursite.com/2016/06/19/java-exceptions/index.html">
 <meta property="og:site_name" content="What?!">
-<meta property="og:description">
+<meta property="og:description" content="Exceptions in JavaIn Java, exceptions can be checked or unchecked.
+Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the me">
+<meta property="og:image" content="http://yoursite.com/java-exceptions/Exception-Hierarchy-Diagram.jpeg">
+<meta property="og:updated_time" content="2016-06-20T03:48:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="What?!">
-<meta name="twitter:description">
+<meta name="twitter:title" content="java-exceptions">
+<meta name="twitter:description" content="Exceptions in JavaIn Java, exceptions can be checked or unchecked.
+Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the me">
+<meta name="twitter:image" content="http://yoursite.com/java-exceptions/Exception-Hierarchy-Diagram.jpeg">
 
 
 
@@ -113,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/19/java-exceptions/"/>
 
-  <title> Archive | What?! </title>
+  <title> java-exceptions | What?! </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -136,7 +142,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,103 +230,128 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 2 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/19/java-exceptions/" itemprop="url">
-              
-                <span itemprop="name">java-exceptions</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-19T20:31:15-07:00"
-              content="2016-06-19" >
-          06-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/18/oo-design/" itemprop="url">
-              
-                <span itemprop="name">Objective Oriented Design</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-18T23:51:30-07:00"
-              content="2016-06-18" >
-          06-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                java-exceptions
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-19T20:31:15-07:00" content="2016-06-19">
+              2016-06-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Exceptions-in-Java"><a href="#Exceptions-in-Java" class="headerlink" title="Exceptions in Java"></a>Exceptions in Java</h3><p>In Java, exceptions can be <strong>checked</strong> or <strong>unchecked</strong>.</p>
+<p>Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the method’s throws clause. Checked exceptions must be caught at compile time. Checked exceptions are so called because both the Java compiler and the Java virtual machine check to make sure this rule is obeyed. Green colored are uncheck exceptions. They are exceptions that are not expected to be recovered, such as null pointer, divide by 0, etc.<br><img src="java-exceptions/Exception-Hierarchy-Diagram.jpeg" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/exception/" rel="tag">#exception</a>
+          
+            <a href="/tags/design/" rel="tag">#design</a>
+          
+            <a href="/tags/effective-java/" rel="tag">#effective java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/18/oo-design/" rel="next" title="Objective Oriented Design">
+                <i class="fa fa-chevron-left"></i> Objective Oriented Design
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -328,6 +359,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -347,8 +382,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -398,6 +442,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exceptions-in-Java"><span class="nav-number">1.</span> <span class="nav-text">Exceptions in Java</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -494,11 +549,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
