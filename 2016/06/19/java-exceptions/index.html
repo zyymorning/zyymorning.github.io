@@ -87,18 +87,18 @@
 <meta name="description" content="Exceptions in JavaIn Java, exceptions can be checked or unchecked.
 Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the me">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java-exceptions">
+<meta property="og:title" content="Java Exceptions">
 <meta property="og:url" content="http://yoursite.com/2016/06/19/java-exceptions/index.html">
 <meta property="og:site_name" content="What?!">
 <meta property="og:description" content="Exceptions in JavaIn Java, exceptions can be checked or unchecked.
 Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the me">
-<meta property="og:image" content="http://yoursite.com/java-exceptions/Exception-Hierarchy-Diagram.jpeg">
-<meta property="og:updated_time" content="2016-06-20T03:48:41.000Z">
+<meta property="og:image" content="http://yoursite.com/2016/06/19/java-exceptions/Exception-Hierarchy-Diagram.jpeg">
+<meta property="og:updated_time" content="2016-06-22T08:00:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java-exceptions">
+<meta name="twitter:title" content="Java Exceptions">
 <meta name="twitter:description" content="Exceptions in JavaIn Java, exceptions can be checked or unchecked.
 Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the me">
-<meta name="twitter:image" content="http://yoursite.com/java-exceptions/Exception-Hierarchy-Diagram.jpeg">
+<meta name="twitter:image" content="http://yoursite.com/2016/06/19/java-exceptions/Exception-Hierarchy-Diagram.jpeg">
 
 
 
@@ -121,7 +121,7 @@ Red colored are checked exceptions. Any checked exceptions that may be thrown in
 
   <link rel="canonical" href="http://yoursite.com/2016/06/19/java-exceptions/"/>
 
-  <title> java-exceptions | What?! </title>
+  <title> Java Exceptions | What?! </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -251,7 +251,7 @@ Red colored are checked exceptions. Any checked exceptions that may be thrown in
             
             
               
-                java-exceptions
+                Java Exceptions
               
             
           </h1>
@@ -268,6 +268,25 @@ Red colored are checked exceptions. Any checked exceptions that may be thrown in
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Design/" itemprop="url" rel="index">
+                    <span itemprop="name">Design</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -292,7 +311,39 @@ Red colored are checked exceptions. Any checked exceptions that may be thrown in
 
       
         <h3 id="Exceptions-in-Java"><a href="#Exceptions-in-Java" class="headerlink" title="Exceptions in Java"></a>Exceptions in Java</h3><p>In Java, exceptions can be <strong>checked</strong> or <strong>unchecked</strong>.</p>
-<p>Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the method’s throws clause. Checked exceptions must be caught at compile time. Checked exceptions are so called because both the Java compiler and the Java virtual machine check to make sure this rule is obeyed. Green colored are uncheck exceptions. They are exceptions that are not expected to be recovered, such as null pointer, divide by 0, etc.<br><img src="java-exceptions/Exception-Hierarchy-Diagram.jpeg" alt="image"></p>
+<p>Red colored are checked exceptions. Any checked exceptions that may be thrown in a method must either be caught or declared in the method’s throws clause. Checked exceptions must be caught at compile time. Checked exceptions are so called because both the Java compiler and the Java virtual machine check to make sure this rule is obeyed. Green colored are uncheck exceptions. They are exceptions that are not expected to be recovered, such as null pointer, divide by 0, etc.</p>
+<img src="/2016/06/19/java-exceptions/Exception-Hierarchy-Diagram.jpeg" alt="Java Exceptions Hierarchy" title="Java Exceptions Hierarchy">
+<p>Principles:</p>
+<ol>
+<li>Use checked exceptions for conditions from which the caller can reasonably be expected to recover. Use unchecked (usually RuntimeError) if the error is unrecoverable.</li>
+<li>Experienced programmers strive for a high degree of code reuse. Use standard checked exceptions:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Exceptions</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IllegalArgumentException</td>
+<td>Non-null parameter value is inappropriate</td>
+</tr>
+<tr>
+<td>IllegalStateException</td>
+<td>Object state is inappropriate for method invocation</td>
+</tr>
+<tr>
+<td>NullPointerException</td>
+<td>Parameter value is null where prohibited</td>
+</tr>
+<tr>
+<td>IndexOutOfBoundsException</td>
+<td>Index parameter value is out of range</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
