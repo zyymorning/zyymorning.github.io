@@ -248,6 +248,139 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/24/java-enum/" itemprop="url">
+                  Java Enum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-24T20:33:39-07:00" content="2016-06-24">
+              2016-06-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Design/" itemprop="url" rel="index">
+                    <span itemprop="name">Design</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Simplest-Enum"><a href="#Simplest-Enum" class="headerlink" title="Simplest Enum"></a>Simplest Enum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&#125;</span><br></pre></td></tr></table></figure>
+<p>Java Enums are classes that export one instance for each enumeration constant via a public static final field.</p>
+<h4 id="Rich-Enum-Type"><a href="#Rich-Enum-Type" class="headerlink" title="Rich Enum Type"></a>Rich Enum Type</h4><p>Here is the extended version of the simplest enum, with fields and methods.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123;       MERCURY(3.302e+23, 2.439e6),       VENUS  (4.869e+24, 6.052e6),       EARTH  (5.975e+24, 6.378e6),       MARS   (6.419e+23, 3.393e6),       JUPITER(1.899e+27, 7.149e7),       SATURN (5.685e+26, 6.027e7),       URANUS (8.683e+25, 2.556e7),       NEPTUNE(1.024e+26, 2.477e7);       private final double mass;           // In kilograms       private final double radius;         // In meters       private final double surfaceGravity; // In m / s^2       // Universal gravitational constant in m^3 / kg s^2       private static final double G = 6.67300E-11;       // Constructor       Planet(double mass, double radius) &#123;           this.mass = mass;           this.radius = radius;           surfaceGravity = G * mass / (radius * radius);	   &#125;       public double mass()           &#123; return mass; &#125;       public double radius()         &#123; return radius; &#125;       public double surfaceGravity() &#123; return surfaceGravity; &#125;       public double surfaceWeight(double mass) &#123;           return mass * surfaceGravity;  // F = ma	   &#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>How to use this Enum:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Planet.EARTH.surfaceGravity() //get the surface gravity on earth</span><br><span class="line">Planet.MARS.surfaceWeight(600.00) //get the weight on mars for a thing mass = 600kg</span><br></pre></td></tr></table></figure>
+<p>定义Planet枚举类，MERCURY等是instance，后面再申明的fields都是Planet类的成员。所以Planet其实有mass、radius、surfaceGravity三个fields，有一个Constructor。<br>在初始化MERCURY等instances时就是调用了这个constructor，所以每个instance都接收到mass和radius两个初始变量，并计算出surfaceGravity（优化而已）。<br>当然每个instance也可以调用申明的mass()、radius()、surfaceGravity()函数（Planet.EARTH.surfaceGravity()就相当于一个instance调用自己的函数, Planet.MARS.surfaceweight()同理）</p>
+<h4 id="Richest-Enum-Type"><a href="#Richest-Enum-Type" class="headerlink" title="Richest Enum Type"></a>Richest Enum Type</h4><p>The use case is you want to associate different behavior with each enum constant. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Operation &#123;       PLUS   &#123; double apply(double x, double y)&#123;return x + y;&#125; &#125;,       MINUS  &#123; double apply(double x, double y)&#123;return x - y;&#125; &#125;,       TIMES  &#123; double apply(double x, double y)&#123;return x * y;&#125; &#125;,       DIVIDE &#123; double apply(double x, double y)&#123;return x / y;&#125; &#125;;       abstract double apply(double x, double y);   &#125;</span><br></pre></td></tr></table></figure>
+<p>Declare an abstract methodin the enum class and override it with a concrete method for each enum constant. So if you add another operation in the enum, you want forget to override the abstract method (Even if you forget, compiler will remind you.)</p>
+<p>每个Operation类都有抽象函数apply，作为Operation类的instance(public static final field)，PLUS等都要override这个抽象函数。</p>
+<h4 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h4><ul>
+<li><p><strong>values() and toString()</strong><br>  Every enum has a static method values() which returns an array of its enum constants in the order they were declared. <code>Planet.values()</code> returns <code>Planet[]</code> which contains Planet.MERCURY, Planet.VENUS etc. So you can do something like:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (Planet p : Planet.values) &#123;</span><br><span class="line">	System.out.println(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  The code uses toString() method and prints out the name of each planet.</p>
+<p>  toString() method returns the declared name of each enum constant, which makes it easy to use println() functions. But you can always override toString() to make it print out anything you want.</p>
+</li>
+<li><p><strong>valueOf()</strong><br>Every enum has an auto generated valueOf() method that takes in an enum constant’s name and returns the constant itself.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Planet.valueOf(&quot;EARTH&quot;)  //return Planet.EARTH</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/19/java-exceptions/" itemprop="url">
                   Java Exceptions
                 </a>
@@ -350,7 +483,7 @@
 <li><p>Where should / How to catch exceptions?</p>
 <p><strong>Exception translation</strong>: It will be disconcerting if a higher-level method throws a lower-level exception because the exception is not appropiate to the higher-level method. So higher layers should catch lower-level exceptions and, in their place, throw exceptions that can be explained in terms of the higher-level abstraction. </p>
 <p><strong>Exception chaining</strong>: Lower-level exceptions could be passed into higher-level exceptions if they are useful for debugging.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> try &#123;      // Use lower-level abstraction  &#125; catch(LowerLevelException cause) &#123;      throw new HigherLevelException(..., cause);&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> try &#123;      // Use lower-level abstraction   &#125; catch(LowerLevelException cause) &#123;      throw new HigherLevelException(..., cause);&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Include detailed failure message</strong> When capture the failure, the detail message of an exception should contain the values of all parameters and fields that “contributed to the exception.” For example, the detail message of an IndexOutOfBoundsException should contain the lower bound, the upper bound, and the index value that failed to lie between the bounds. This will help debugging a lot!!! </p>
 <p>job里调用createTable()，createTable()又调用SQLHelper去创建table。SqlHelper抛出SqlException，createTable()需要catch了再抛出，在job中又需要catch了再retry，最后抛出RTE。</p>
 </li>
@@ -549,7 +682,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -566,7 +699,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
