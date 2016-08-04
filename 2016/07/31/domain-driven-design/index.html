@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Design,Effective Java,Enum," />
+  <meta name="keywords" content="Design,Domain Driven Design," />
 
 
 
@@ -84,19 +84,18 @@
 
 
 
-<meta name="description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
+<meta name="description" content="Definition of Domain Driven DesignWhat is “domain”?A software is designed for an application purpose. This application area is called a “domain”. For example, public transit system is used for transpo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Enum">
-<meta property="og:url" content="http://yoursite.com/2016/06/24/java-enum/index.html">
+<meta property="og:title" content="Domain Driven Design">
+<meta property="og:url" content="http://yoursite.com/2016/07/31/domain-driven-design/index.html">
 <meta property="og:site_name" content="What?!">
-<meta property="og:description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
-<meta property="og:updated_time" content="2016-06-25T05:54:29.000Z">
+<meta property="og:description" content="Definition of Domain Driven DesignWhat is “domain”?A software is designed for an application purpose. This application area is called a “domain”. For example, public transit system is used for transpo">
+<meta property="og:image" content="http://yoursite.com/2016/07/31/domain-driven-design/layered_architecture.png">
+<meta property="og:updated_time" content="2016-08-04T06:25:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Enum">
-<meta name="twitter:description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
+<meta name="twitter:title" content="Domain Driven Design">
+<meta name="twitter:description" content="Definition of Domain Driven DesignWhat is “domain”?A software is designed for an application purpose. This application area is called a “domain”. For example, public transit system is used for transpo">
+<meta name="twitter:image" content="http://yoursite.com/2016/07/31/domain-driven-design/layered_architecture.png">
 
 
 
@@ -117,9 +116,9 @@ Java Enums are classes that export one instance for each enumeration constant vi
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/24/java-enum/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/31/domain-driven-design/"/>
 
-  <title> Java Enum | What?! </title>
+  <title> Domain Driven Design | What?! </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -249,7 +248,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
             
             
               
-                Java Enum
+                Domain Driven Design
               
             
           </h1>
@@ -261,8 +260,8 @@ Java Enums are classes that export one instance for each enumeration constant vi
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-24T20:33:39-07:00" content="2016-06-24">
-              2016-06-24
+            <time itemprop="dateCreated" datetime="2016-07-31T23:41:16-07:00" content="2016-07-31">
+              2016-07-31
             </time>
           </span>
 
@@ -308,27 +307,40 @@ Java Enums are classes that export one instance for each enumeration constant vi
       
 
       
-        <h4 id="Simplest-Enum"><a href="#Simplest-Enum" class="headerlink" title="Simplest Enum"></a>Simplest Enum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&#125;</span><br></pre></td></tr></table></figure>
-<p>Java Enums are classes that export one instance for each enumeration constant via a public static final field.</p>
-<h4 id="Rich-Enum-Type"><a href="#Rich-Enum-Type" class="headerlink" title="Rich Enum Type"></a>Rich Enum Type</h4><p>Here is the extended version of the simplest enum, with fields and methods.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123;       MERCURY(3.302e+23, 2.439e6),       VENUS  (4.869e+24, 6.052e6),       EARTH  (5.975e+24, 6.378e6),       MARS   (6.419e+23, 3.393e6),       JUPITER(1.899e+27, 7.149e7),       SATURN (5.685e+26, 6.027e7),       URANUS (8.683e+25, 2.556e7),       NEPTUNE(1.024e+26, 2.477e7);       private final double mass;           // In kilograms       private final double radius;         // In meters       private final double surfaceGravity; // In m / s^2       // Universal gravitational constant in m^3 / kg s^2       private static final double G = 6.67300E-11;       // Constructor       Planet(double mass, double radius) &#123;           this.mass = mass;           this.radius = radius;           surfaceGravity = G * mass / (radius * radius);	   &#125;       public double mass()           &#123; return mass; &#125;       public double radius()         &#123; return radius; &#125;       public double surfaceGravity() &#123; return surfaceGravity; &#125;       public double surfaceWeight(double mass) &#123;           return mass * surfaceGravity;  // F = ma	   &#125; &#125;</span><br></pre></td></tr></table></figure>
-<p>How to use this Enum:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Planet.EARTH.surfaceGravity() //get the surface gravity on earth</span><br><span class="line">Planet.MARS.surfaceWeight(600.00) //get the weight on mars for a thing mass = 600kg</span><br></pre></td></tr></table></figure>
-<p>定义Planet枚举类，MERCURY等是instance，后面再申明的fields都是Planet类的成员。所以Planet其实有mass、radius、surfaceGravity三个fields，有一个Constructor。<br>在初始化MERCURY等instances时就是调用了这个constructor，所以每个instance都接收到mass和radius两个初始变量，并计算出surfaceGravity（优化而已）。<br>当然每个instance也可以调用申明的mass()、radius()、surfaceGravity()函数（Planet.EARTH.surfaceGravity()就相当于一个instance调用自己的函数, Planet.MARS.surfaceweight()同理）</p>
-<h4 id="Richest-Enum-Type"><a href="#Richest-Enum-Type" class="headerlink" title="Richest Enum Type"></a>Richest Enum Type</h4><p>The use case is you want to associate different behavior with each enum constant. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Operation &#123;       PLUS   &#123; double apply(double x, double y)&#123;return x + y;&#125; &#125;,       MINUS  &#123; double apply(double x, double y)&#123;return x - y;&#125; &#125;,       TIMES  &#123; double apply(double x, double y)&#123;return x * y;&#125; &#125;,       DIVIDE &#123; double apply(double x, double y)&#123;return x / y;&#125; &#125;;       abstract double apply(double x, double y);   &#125;</span><br></pre></td></tr></table></figure>
-<p>Declare an abstract methodin the enum class and override it with a concrete method for each enum constant. So if you add another operation in the enum, you want forget to override the abstract method (Even if you forget, compiler will remind you.)</p>
-<p>每个Operation类都有抽象函数apply，作为Operation类的instance(public static final field)，PLUS等都要override这个抽象函数。</p>
-<h4 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h4><ul>
-<li><p><strong>values() and toString()</strong><br>  Every enum has a static method values() which returns an array of its enum constants in the order they were declared. <code>Planet.values()</code> returns <code>Planet[]</code> which contains Planet.MERCURY, Planet.VENUS etc. So you can do something like:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (Planet p : Planet.values) &#123;</span><br><span class="line">	System.out.println(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  The code uses toString() method and prints out the name of each planet.</p>
-<p>  toString() method returns the declared name of each enum constant, which makes it easy to use println() functions. But you can always override toString() to make it print out anything you want.</p>
-</li>
-<li><p><strong>valueOf()</strong><br>Every enum has an auto generated valueOf() method that takes in an enum constant’s name and returns the constant itself.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Planet.valueOf(&quot;EARTH&quot;)  //return Planet.EARTH</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+        <h2 id="Definition-of-Domain-Driven-Design"><a href="#Definition-of-Domain-Driven-Design" class="headerlink" title="Definition of Domain Driven Design"></a>Definition of Domain Driven Design</h2><p><strong>What is “domain”?</strong><br>A software is designed for an application purpose. This application area is called a “domain”. For example, public transit system is used for transportation domain; hospital system is for medical domain etc.</p>
+<p><strong>What is “domain driven design”?</strong><br>If you want to design a good software for use in a certain domain, you should let that “domain” drive your design. This book typically talks about how you could design and maintain good softwares based on communications with domain experts.</p>
+<h2 id="Use-Ubiquitous-Language"><a href="#Use-Ubiquitous-Language" class="headerlink" title="Use Ubiquitous Language"></a>Use Ubiquitous Language</h2><p><strong>What is “ubiquitous language” here?</strong><br>Mainly refers to diagram languages like UML.</p>
+<p><strong>When to use?</strong><br>When you want to communicate with domain experts, because they don’t understand codes -.- Anyway, you should talk deeply with domain experts and use UML to communicate about domain concepts. Keep documenting these ideas and concepts is also a good habit.</p>
+<h2 id="Layered-Architecture"><a href="#Layered-Architecture" class="headerlink" title="Layered Architecture"></a>Layered Architecture</h2><img src="/2016/07/31/domain-driven-design/layered_architecture.png" alt="Layered Architecture in DDD" title="Layered Architecture in DDD">
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Interface Layer</td>
+<td>Responsible for showing information to the user / external system and interpreting the user’s commands / external system’s input.</td>
+</tr>
+<tr>
+<td>Application Layer</td>
+<td>A thin layer which is only responsible for coordinates tasks between user interface and domain layer. It should not coantain any business rules.</td>
+</tr>
+<tr>
+<td>Domain Layer(Model Layer)</td>
+<td>As <em>the heart of business software</em>, this layer is responsible for representing and interpreting concepts of the business logic.</td>
+</tr>
+<tr>
+<td>Infrastructure Layer</td>
+<td>Provide low-level technical support for higher layers, e.g. message sending(HTTP) for the application, persistence(Database) for the domain, drawing widgets for the UI etc.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><p><strong>Refactor toward deeper insights</strong></p>
+<p><strong>Maintain model integrity</strong><br>e.g Use shared kernel </p>
+<p>etc…</p>
 
       
     </div>
@@ -352,9 +364,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
           
             <a href="/tags/Design/" rel="tag">#Design</a>
           
-            <a href="/tags/Effective-Java/" rel="tag">#Effective Java</a>
-          
-            <a href="/tags/Enum/" rel="tag">#Enum</a>
+            <a href="/tags/Domain-Driven-Design/" rel="tag">#Domain Driven Design</a>
           
         </div>
       
@@ -363,17 +373,13 @@ Java Enums are classes that export one instance for each enumeration constant vi
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/19/java-exceptions/" rel="next" title="Java Exceptions">
-                <i class="fa fa-chevron-left"></i> Java Exceptions
+              <a href="/2016/07/04/sed/" rel="next" title="Sed">
+                <i class="fa fa-chevron-left"></i> Sed
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/04/sed/" rel="prev" title="Sed">
-                Sed <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,7 +493,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Simplest-Enum"><span class="nav-number">1.</span> <span class="nav-text">Simplest Enum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rich-Enum-Type"><span class="nav-number">2.</span> <span class="nav-text">Rich Enum Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Richest-Enum-Type"><span class="nav-number">3.</span> <span class="nav-text">Richest Enum Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other"><span class="nav-number">4.</span> <span class="nav-text">Other</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-of-Domain-Driven-Design"><span class="nav-number">1.</span> <span class="nav-text">Definition of Domain Driven Design</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Ubiquitous-Language"><span class="nav-number">2.</span> <span class="nav-text">Use Ubiquitous Language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layered-Architecture"><span class="nav-number">3.</span> <span class="nav-text">Layered Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Others"><span class="nav-number">4.</span> <span class="nav-text">Others</span></a></li></ol></div>
             
           </div>
         </section>

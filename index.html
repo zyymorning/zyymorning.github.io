@@ -248,6 +248,152 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/31/domain-driven-design/" itemprop="url">
+                  Domain Driven Design
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-31T23:41:16-07:00" content="2016-07-31">
+              2016-07-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Design/" itemprop="url" rel="index">
+                    <span itemprop="name">Design</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Definition-of-Domain-Driven-Design"><a href="#Definition-of-Domain-Driven-Design" class="headerlink" title="Definition of Domain Driven Design"></a>Definition of Domain Driven Design</h2><p><strong>What is “domain”?</strong><br>A software is designed for an application purpose. This application area is called a “domain”. For example, public transit system is used for transportation domain; hospital system is for medical domain etc.</p>
+<p><strong>What is “domain driven design”?</strong><br>If you want to design a good software for use in a certain domain, you should let that “domain” drive your design. This book typically talks about how you could design and maintain good softwares based on communications with domain experts.</p>
+<h2 id="Use-Ubiquitous-Language"><a href="#Use-Ubiquitous-Language" class="headerlink" title="Use Ubiquitous Language"></a>Use Ubiquitous Language</h2><p><strong>What is “ubiquitous language” here?</strong><br>Mainly refers to diagram languages like UML.</p>
+<p><strong>When to use?</strong><br>When you want to communicate with domain experts, because they don’t understand codes -.- Anyway, you should talk deeply with domain experts and use UML to communicate about domain concepts. Keep documenting these ideas and concepts is also a good habit.</p>
+<h2 id="Layered-Architecture"><a href="#Layered-Architecture" class="headerlink" title="Layered Architecture"></a>Layered Architecture</h2><img src="/2016/07/31/domain-driven-design/layered_architecture.png" alt="Layered Architecture in DDD" title="Layered Architecture in DDD">
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Interface Layer</td>
+<td>Responsible for showing information to the user / external system and interpreting the user’s commands / external system’s input.</td>
+</tr>
+<tr>
+<td>Application Layer</td>
+<td>A thin layer which is only responsible for coordinates tasks between user interface and domain layer. It should not coantain any business rules.</td>
+</tr>
+<tr>
+<td>Domain Layer(Model Layer)</td>
+<td>As <em>the heart of business software</em>, this layer is responsible for representing and interpreting concepts of the business logic.</td>
+</tr>
+<tr>
+<td>Infrastructure Layer</td>
+<td>Provide low-level technical support for higher layers, e.g. message sending(HTTP) for the application, persistence(Database) for the domain, drawing widgets for the UI etc.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><p><strong>Refactor toward deeper insights</strong></p>
+<p><strong>Maintain model integrity</strong><br>e.g Use shared kernel </p>
+<p>etc…</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/04/sed/" itemprop="url">
                   Sed
                 </a>
@@ -828,7 +974,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -845,7 +991,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
