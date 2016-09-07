@@ -248,6 +248,140 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/05/rpm-yum/" itemprop="url">
+                  RPM & YUM
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-05T21:22:19-07:00" content="2016-09-05">
+              2016-09-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Log/" itemprop="url" rel="index">
+                    <span itemprop="name">Log</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Linux下软件管理"><a href="#Linux下软件管理" class="headerlink" title="Linux下软件管理"></a>Linux下软件管理</h2><p>Linux下安装安装的方式最常见的两种：</p>
+<ul>
+<li>dpkg机制： 用于Debian系统如Ubuntu等。</li>
+<li>rpm机制： Redhat Package Manager，用于Fedora、CentOS等。</li>
+</ul>
+<p>不论是dpkg还是rpm，都会有软件属性依赖问题，目前Linux开发商都提供“在线升级”机制来解决软件安装/更新时的属性依赖问题。对应dpkg的是APT(apt-get命令)在线升级机制；对应RPM的是YUM(yum命令)在线升级机制。</p>
+<h2 id="RPM"><a href="#RPM" class="headerlink" title="RPM"></a>RPM</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh package_name</span><br><span class="line">-i: install</span><br><span class="line">-v: verbose</span><br><span class="line">-h: 显示进度</span><br></pre></td></tr></table></figure>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>rpm在查询的时候其实查询的是/var/lib/rpm这个目录下的数据库文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//查询所有package</span><br><span class="line">rpm -qa </span><br><span class="line">-a: 列出所有文件</span><br><span class="line"></span><br><span class="line">//查询某个package</span><br><span class="line">rpm -q &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line">//查询某个package的信息</span><br><span class="line">rpm -qi &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//删除某个package，但是要保证没有依赖的包才行</span><br><span class="line">rpm -e &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Yum"><a href="#Yum" class="headerlink" title="Yum"></a>Yum</h2><h3 id="搜索等"><a href="#搜索等" class="headerlink" title="搜索等"></a>搜索等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//搜索相关软件</span><br><span class="line">yum search &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//查询软件相关信息</span><br><span class="line">yum info &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//列出yum服务器上的所有软件</span><br><span class="line">yum list</span><br></pre></td></tr></table></figure>
+<h3 id="安装等"><a href="#安装等" class="headerlink" title="安装等"></a>安装等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//安装</span><br><span class="line">yum install &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//升级</span><br><span class="line">yum update &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//删除</span><br><span class="line">yum remove &lt;name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="原理及配置文件"><a href="#原理及配置文件" class="headerlink" title="原理及配置文件"></a>原理及配置文件</h3><p>Yum如何实现在线升级？<br>比如CentOS会将发布的软件放到某些yum服务器内，并且将软件的信息及依赖记录下来（称为容器）。当用户运行yum安装或更新时，会向yum容器发出请求，下载软件信息及依赖列表（更新本地的/var/cache/yum），然后再从yum服务器下载软件。</p>
+<p>如何配置容器地址？示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://mirrors.gina.alaska.edu/centos/$releasever/os/$basearch/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.gina.alaska.edu/centos/RPM-GPG-KEY-CentOS-6</span><br></pre></td></tr></table></figure>
+<ul>
+<li>[base]: 容器名，不可相同</li>
+<li>name: =description 不重要</li>
+<li>mirrorlist: 列出这个容器可使用的镜像站点，可注释掉</li>
+<li>baseurl: 真正重要俄url，表明这个容器的实际网址</li>
+<li>enable=1: 让这个容器被启动，设为0表示不启动这个容器</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/16/design-pattern/" itemprop="url">
                   Design Pattern - 创建型模式
                 </a>
@@ -267,6 +401,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Design/" itemprop="url" rel="index">
+                    <span itemprop="name">Design</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -327,6 +480,7 @@
 <li>依赖倒置：依赖抽象，而非具体类</li>
 <li>OCP原则如何运用到每个部分？ - 不需要，因为运用OCP原则同时也会增加代码复杂度，只要集中在最容易被修改的地方即可。</li>
 </ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://design-patterns.readthedocs.io/zh_CN/latest/" target="_blank" rel="external">http://design-patterns.readthedocs.io/zh_CN/latest/</a></p>
 
           
         
@@ -1102,7 +1256,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1119,7 +1273,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

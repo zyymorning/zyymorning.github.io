@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Design,Effective Java,Enum," />
+  <meta name="keywords" content="Log," />
 
 
 
@@ -84,19 +84,31 @@
 
 
 
-<meta name="description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
+<meta name="description" content="Linux下软件管理Linux下安装安装的方式最常见的两种：
+
+dpkg机制： 用于Debian系统如Ubuntu等。
+rpm机制： Redhat Package Manager，用于Fedora、CentOS等。
+
+不论是dpkg还是rpm，都会有软件属性依赖问题，目前Linux开发商都提供“在线升级”机制来解决软件安装/更新时的属性依赖问题。对应dpkg的是APT(apt-get命令)在线升级">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Enum">
-<meta property="og:url" content="http://yoursite.com/2016/06/24/java-enum/index.html">
+<meta property="og:title" content="RPM & YUM">
+<meta property="og:url" content="http://yoursite.com/2016/09/05/rpm-yum/index.html">
 <meta property="og:site_name" content="What?!">
-<meta property="og:description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
-<meta property="og:updated_time" content="2016-06-25T05:54:29.000Z">
+<meta property="og:description" content="Linux下软件管理Linux下安装安装的方式最常见的两种：
+
+dpkg机制： 用于Debian系统如Ubuntu等。
+rpm机制： Redhat Package Manager，用于Fedora、CentOS等。
+
+不论是dpkg还是rpm，都会有软件属性依赖问题，目前Linux开发商都提供“在线升级”机制来解决软件安装/更新时的属性依赖问题。对应dpkg的是APT(apt-get命令)在线升级">
+<meta property="og:updated_time" content="2016-09-07T06:19:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Enum">
-<meta name="twitter:description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
+<meta name="twitter:title" content="RPM & YUM">
+<meta name="twitter:description" content="Linux下软件管理Linux下安装安装的方式最常见的两种：
+
+dpkg机制： 用于Debian系统如Ubuntu等。
+rpm机制： Redhat Package Manager，用于Fedora、CentOS等。
+
+不论是dpkg还是rpm，都会有软件属性依赖问题，目前Linux开发商都提供“在线升级”机制来解决软件安装/更新时的属性依赖问题。对应dpkg的是APT(apt-get命令)在线升级">
 
 
 
@@ -117,9 +129,9 @@ Java Enums are classes that export one instance for each enumeration constant vi
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/24/java-enum/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/05/rpm-yum/"/>
 
-  <title> Java Enum | What?! </title>
+  <title> RPM & YUM | What?! </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -249,7 +261,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
             
             
               
-                Java Enum
+                RPM & YUM
               
             
           </h1>
@@ -261,8 +273,8 @@ Java Enums are classes that export one instance for each enumeration constant vi
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-24T20:33:39-07:00" content="2016-06-24">
-              2016-06-24
+            <time itemprop="dateCreated" datetime="2016-09-05T21:22:19-07:00" content="2016-09-05">
+              2016-09-05
             </time>
           </span>
 
@@ -275,8 +287,8 @@ Java Enums are classes that export one instance for each enumeration constant vi
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Design/" itemprop="url" rel="index">
-                    <span itemprop="name">Design</span>
+                  <a href="/categories/Log/" itemprop="url" rel="index">
+                    <span itemprop="name">Log</span>
                   </a>
                 </span>
 
@@ -308,26 +320,27 @@ Java Enums are classes that export one instance for each enumeration constant vi
       
 
       
-        <h4 id="Simplest-Enum"><a href="#Simplest-Enum" class="headerlink" title="Simplest Enum"></a>Simplest Enum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&#125;</span><br></pre></td></tr></table></figure>
-<p>Java Enums are classes that export one instance for each enumeration constant via a public static final field.</p>
-<h4 id="Rich-Enum-Type"><a href="#Rich-Enum-Type" class="headerlink" title="Rich Enum Type"></a>Rich Enum Type</h4><p>Here is the extended version of the simplest enum, with fields and methods.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123;       MERCURY(3.302e+23, 2.439e6),       VENUS  (4.869e+24, 6.052e6),       EARTH  (5.975e+24, 6.378e6),       MARS   (6.419e+23, 3.393e6),       JUPITER(1.899e+27, 7.149e7),       SATURN (5.685e+26, 6.027e7),       URANUS (8.683e+25, 2.556e7),       NEPTUNE(1.024e+26, 2.477e7);       private final double mass;           // In kilograms       private final double radius;         // In meters       private final double surfaceGravity; // In m / s^2       // Universal gravitational constant in m^3 / kg s^2       private static final double G = 6.67300E-11;       // Constructor       Planet(double mass, double radius) &#123;           this.mass = mass;           this.radius = radius;           surfaceGravity = G * mass / (radius * radius);	   &#125;       public double mass()           &#123; return mass; &#125;       public double radius()         &#123; return radius; &#125;       public double surfaceGravity() &#123; return surfaceGravity; &#125;       public double surfaceWeight(double mass) &#123;           return mass * surfaceGravity;  // F = ma	   &#125; &#125;</span><br></pre></td></tr></table></figure>
-<p>How to use this Enum:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Planet.EARTH.surfaceGravity() //get the surface gravity on earth</span><br><span class="line">Planet.MARS.surfaceWeight(600.00) //get the weight on mars for a thing mass = 600kg</span><br></pre></td></tr></table></figure>
-<p>定义Planet枚举类，MERCURY等是instance，后面再申明的fields都是Planet类的成员。所以Planet其实有mass、radius、surfaceGravity三个fields，有一个Constructor。<br>在初始化MERCURY等instances时就是调用了这个constructor，所以每个instance都接收到mass和radius两个初始变量，并计算出surfaceGravity（优化而已）。<br>当然每个instance也可以调用申明的mass()、radius()、surfaceGravity()函数（Planet.EARTH.surfaceGravity()就相当于一个instance调用自己的函数, Planet.MARS.surfaceweight()同理）</p>
-<h4 id="Richest-Enum-Type"><a href="#Richest-Enum-Type" class="headerlink" title="Richest Enum Type"></a>Richest Enum Type</h4><p>The use case is you want to associate different behavior with each enum constant. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Operation &#123;       PLUS   &#123; double apply(double x, double y)&#123;return x + y;&#125; &#125;,       MINUS  &#123; double apply(double x, double y)&#123;return x - y;&#125; &#125;,       TIMES  &#123; double apply(double x, double y)&#123;return x * y;&#125; &#125;,       DIVIDE &#123; double apply(double x, double y)&#123;return x / y;&#125; &#125;;       abstract double apply(double x, double y);   &#125;</span><br></pre></td></tr></table></figure>
-<p>Declare an abstract methodin the enum class and override it with a concrete method for each enum constant. So if you add another operation in the enum, you want forget to override the abstract method (Even if you forget, compiler will remind you.)</p>
-<p>每个Operation类都有抽象函数apply，作为Operation类的instance(public static final field)，PLUS等都要override这个抽象函数。</p>
-<h4 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h4><ul>
-<li><p><strong>values() and toString()</strong><br>  Every enum has a static method values() which returns an array of its enum constants in the order they were declared. <code>Planet.values()</code> returns <code>Planet[]</code> which contains Planet.MERCURY, Planet.VENUS etc. So you can do something like:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (Planet p : Planet.values) &#123;</span><br><span class="line">	System.out.println(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  The code uses toString() method and prints out the name of each planet.</p>
-<p>  toString() method returns the declared name of each enum constant, which makes it easy to use println() functions. But you can always override toString() to make it print out anything you want.</p>
-</li>
-<li><p><strong>valueOf()</strong><br>Every enum has an auto generated valueOf() method that takes in an enum constant’s name and returns the constant itself.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Planet.valueOf(&quot;EARTH&quot;)  //return Planet.EARTH</span><br></pre></td></tr></table></figure>
-</li>
+        <h2 id="Linux下软件管理"><a href="#Linux下软件管理" class="headerlink" title="Linux下软件管理"></a>Linux下软件管理</h2><p>Linux下安装安装的方式最常见的两种：</p>
+<ul>
+<li>dpkg机制： 用于Debian系统如Ubuntu等。</li>
+<li>rpm机制： Redhat Package Manager，用于Fedora、CentOS等。</li>
+</ul>
+<p>不论是dpkg还是rpm，都会有软件属性依赖问题，目前Linux开发商都提供“在线升级”机制来解决软件安装/更新时的属性依赖问题。对应dpkg的是APT(apt-get命令)在线升级机制；对应RPM的是YUM(yum命令)在线升级机制。</p>
+<h2 id="RPM"><a href="#RPM" class="headerlink" title="RPM"></a>RPM</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh package_name</span><br><span class="line">-i: install</span><br><span class="line">-v: verbose</span><br><span class="line">-h: 显示进度</span><br></pre></td></tr></table></figure>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>rpm在查询的时候其实查询的是/var/lib/rpm这个目录下的数据库文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//查询所有package</span><br><span class="line">rpm -qa </span><br><span class="line">-a: 列出所有文件</span><br><span class="line"></span><br><span class="line">//查询某个package</span><br><span class="line">rpm -q &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line">//查询某个package的信息</span><br><span class="line">rpm -qi &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//删除某个package，但是要保证没有依赖的包才行</span><br><span class="line">rpm -e &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Yum"><a href="#Yum" class="headerlink" title="Yum"></a>Yum</h2><h3 id="搜索等"><a href="#搜索等" class="headerlink" title="搜索等"></a>搜索等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//搜索相关软件</span><br><span class="line">yum search &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//查询软件相关信息</span><br><span class="line">yum info &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//列出yum服务器上的所有软件</span><br><span class="line">yum list</span><br></pre></td></tr></table></figure>
+<h3 id="安装等"><a href="#安装等" class="headerlink" title="安装等"></a>安装等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//安装</span><br><span class="line">yum install &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//升级</span><br><span class="line">yum update &lt;name&gt;</span><br><span class="line"></span><br><span class="line">//删除</span><br><span class="line">yum remove &lt;name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="原理及配置文件"><a href="#原理及配置文件" class="headerlink" title="原理及配置文件"></a>原理及配置文件</h3><p>Yum如何实现在线升级？<br>比如CentOS会将发布的软件放到某些yum服务器内，并且将软件的信息及依赖记录下来（称为容器）。当用户运行yum安装或更新时，会向yum容器发出请求，下载软件信息及依赖列表（更新本地的/var/cache/yum），然后再从yum服务器下载软件。</p>
+<p>如何配置容器地址？示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://mirrors.gina.alaska.edu/centos/$releasever/os/$basearch/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.gina.alaska.edu/centos/RPM-GPG-KEY-CentOS-6</span><br></pre></td></tr></table></figure>
+<ul>
+<li>[base]: 容器名，不可相同</li>
+<li>name: =description 不重要</li>
+<li>mirrorlist: 列出这个容器可使用的镜像站点，可注释掉</li>
+<li>baseurl: 真正重要俄url，表明这个容器的实际网址</li>
+<li>enable=1: 让这个容器被启动，设为0表示不启动这个容器</li>
 </ul>
 
       
@@ -350,11 +363,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
       
         <div class="post-tags">
           
-            <a href="/tags/Design/" rel="tag">#Design</a>
-          
-            <a href="/tags/Effective-Java/" rel="tag">#Effective Java</a>
-          
-            <a href="/tags/Enum/" rel="tag">#Enum</a>
+            <a href="/tags/Log/" rel="tag">#Log</a>
           
         </div>
       
@@ -363,17 +372,13 @@ Java Enums are classes that export one instance for each enumeration constant vi
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/19/java-exceptions/" rel="next" title="Java Exceptions">
-                <i class="fa fa-chevron-left"></i> Java Exceptions
+              <a href="/2016/08/16/design-pattern/" rel="next" title="Design Pattern - 创建型模式">
+                <i class="fa fa-chevron-left"></i> Design Pattern - 创建型模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/04/sed/" rel="prev" title="Sed">
-                Sed <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,7 +492,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Simplest-Enum"><span class="nav-number">1.</span> <span class="nav-text">Simplest Enum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rich-Enum-Type"><span class="nav-number">2.</span> <span class="nav-text">Rich Enum Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Richest-Enum-Type"><span class="nav-number">3.</span> <span class="nav-text">Richest Enum Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other"><span class="nav-number">4.</span> <span class="nav-text">Other</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下软件管理"><span class="nav-number">1.</span> <span class="nav-text">Linux下软件管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RPM"><span class="nav-number">2.</span> <span class="nav-text">RPM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询"><span class="nav-number">2.2.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">2.3.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yum"><span class="nav-number">3.</span> <span class="nav-text">Yum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索等"><span class="nav-number">3.1.</span> <span class="nav-text">搜索等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装等"><span class="nav-number">3.2.</span> <span class="nav-text">安装等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理及配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">原理及配置文件</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
