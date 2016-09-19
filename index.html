@@ -248,6 +248,173 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/17/git/" itemprop="url">
+                  Git
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T22:51:10-07:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Log/" itemprop="url" rel="index">
+                    <span itemprop="name">Log</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>记录一些平时不太清楚但又很有用的git知识</p>
+<h3 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h3><p>Git working environment：<br>Workspace -&gt; Staging -&gt; Remote</p>
+<ul>
+<li>HEAD：The most recent commit on the current branch.</li>
+<li>ORIG_HEAD: The previous version of HEAD.</li>
+<li>FETCH_HEAD: The head of the last branch fetched and is valid only after a fetch operation.</li>
+<li>MERGE_HEAD:The tip of the other branch when in the progress of a merge.</li>
+</ul>
+<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><h4 id="Fast-forward-Merge"><a href="#Fast-forward-Merge" class="headerlink" title="Fast-forward Merge"></a>Fast-forward Merge</h4><img src="/2016/09/17/git/fast-forward-merge.png" alt="Fast Forward Merge" title="Fast Forward Merge">
+<ol>
+<li>Master branch is at commit 2. </li>
+<li>Check out a feature branch and proceed to commit 4. At the same time, no progress on master.</li>
+<li>At master branch, do <code>git merge</code>, will do a fast-forward merge: make master point to the head of feature branch.</li>
+</ol>
+<h4 id="Three-way-Merge"><a href="#Three-way-Merge" class="headerlink" title="Three-way Merge"></a>Three-way Merge</h4><img src="/2016/09/17/git/three-way-merge.png" alt="Three Way Merge" title="Three Way Merge">
+<ol>
+<li>Master branch is at commit 2.</li>
+<li>Checkout a feature branch and proceed to commit 4. At the same time, master proceeds to commit 6.</li>
+<li>At master branch, do <code>git merge</code>, cannot do a fast-forward merge in this case, need to do a 3-way merge. “Three” refers to the three red commits (the common ancestor of master and feature branches, the last commit of feature branch and the last commit of master branch). 3-way merge will create a “merge commit” and make all changes happend between 2 and 4、6 in commit 7.</li>
+</ol>
+<h3 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h3><img src="/2016/09/17/git/rebase.png" alt="Rebase" title="Rebase">
+<p>In development, we have the scenario which needs to do a three-way merge often. Rebase gives another choice in this case and will make the “log graph” more beautiful.</p>
+<p>Instead of doing <code>git merge &lt;feature branch&gt;</code> on master, do <code>git rebase</code> on feature branch. <code>git rebase</code> will:</p>
+<ol>
+<li>Reset feature branch’s head to the last commit of master.</li>
+<li>Reapply every change made in master but not in feature branch again (in this case, will re-commit 3 and 4 as 3’ and 4’). Note: since git rebase is “re-committing” so it will generate new commits for all commits in this branch.</li>
+<li>Now the commit graph becomes the third stage in the picture above, so doing a merge in master will be a fast-forward merge.</li>
+</ol>
+<p>For more usage about rebase, please refer to : <a href="https://blog.yorkxin.org/2011/07/29/git-rebase" target="_blank" rel="external">https://blog.yorkxin.org/2011/07/29/git-rebase</a></p>
+<h3 id="Diff"><a href="#Diff" class="headerlink" title="Diff"></a>Diff</h3><ul>
+<li><code>git diff</code>: Difference between urrent workspace and staging.</li>
+<li><p><code>git diff &lt;commit&gt;</code>: Difference between current workspace and this commit. </p>
+<p>  Common usgae: <code>git diff HEAD</code> difference between current workspace and current branch’s last commit</p>
+</li>
+<li><p><code>git diff --cached &lt;commit&gt;</code>: Difference between current staging and this commit.</p>
+<p>Common usage: <code>git diff --cached HEAD</code> or just <code>git diff --cached</code> difference between current staging and current branch’s last commit.</p>
+</li>
+<li><p><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code>: Difference between commit1 and commit2.</p>
+</li>
+</ul>
+<h3 id="Detached-Head"><a href="#Detached-Head" class="headerlink" title="Detached Head"></a>Detached Head</h3><img src="/2016/09/17/git/detached-head.png" alt="Detached Head" title="Detached Head">
+<ol>
+<li>HEAD is pointing to the latest commit of master branch (commit 4).</li>
+<li>Do <code>git checkout &lt;commit2&gt;</code> will make HEAD point to commit 2, which has no branch attached to it, so this is called “You are in a ‘detached head’”. You can treat this branch as an “anonymous” branch.</li>
+<li>If commit in this status, HEAD will continue pointing to the new commit 5.</li>
+<li>Do <code>git checkout &lt;master&gt;</code> or <code>git checkout &lt;some branch&gt;</code> to leave this detached head status. Once you left, there is no way to get back to it:(  But, if you do <code>git checkout -b &lt;new branch&gt;</code> in the detached head status, there will be a new branch attached to it, which can be used for getting back :)</li>
+</ol>
+<h3 id="Reset"><a href="#Reset" class="headerlink" title="Reset"></a>Reset</h3><img src="/2016/09/17/git/reset.png" alt="Reset" title="Reset">
+<p>General usage：<code>git reset [--hard|soft|mixed|merge|keep] &lt;commit&gt;</code> will reset current <strong>branch</strong> to certain commit and retain or discard changes in workspace and staging environment according to options.</p>
+<ul>
+<li><code>--hard</code>: Reset workspace and staging, discard all changes made after commit, point HEAD to commit.</li>
+<li><code>--soft</code>: Nothing happens for workspace and staging. Only point HEAD to commit. All changes made after commit will be in staging.</li>
+<li><code>--mixed</code>(default mode): Only reset staging but not workspace. </li>
+</ul>
+<p>Common usage:<br>After making changes in the workspace or staging, you want to discard all changes (both in workspace and staging), do <code>git reset HEAD --hard</code> :)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/05/rpm-yum/" itemprop="url">
                   RPM & YUM
                 </a>
@@ -1256,7 +1423,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

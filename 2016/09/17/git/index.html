@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Design,Effective Java,Enum," />
+  <meta name="keywords" content="Log," />
 
 
 
@@ -84,19 +84,37 @@
 
 
 
-<meta name="description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
+<meta name="description" content="记录一些平时不太清楚但又很有用的git知识
+MiscellaneousGit working environment：Workspace -&amp;gt; Staging -&amp;gt; Remote
+
+HEAD：The most recent commit on the current branch.
+ORIG_HEAD: The previous version of HEAD.
+FETCH_HEAD:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Enum">
-<meta property="og:url" content="http://yoursite.com/2016/06/24/java-enum/index.html">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://yoursite.com/2016/09/17/git/index.html">
 <meta property="og:site_name" content="What?!">
-<meta property="og:description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
-<meta property="og:updated_time" content="2016-06-25T05:54:29.000Z">
+<meta property="og:description" content="记录一些平时不太清楚但又很有用的git知识
+MiscellaneousGit working environment：Workspace -&amp;gt; Staging -&amp;gt; Remote
+
+HEAD：The most recent commit on the current branch.
+ORIG_HEAD: The previous version of HEAD.
+FETCH_HEAD:">
+<meta property="og:image" content="http://yoursite.com/2016/09/17/git/fast-forward-merge.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/17/git/three-way-merge.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/17/git/rebase.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/17/git/detached-head.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/17/git/reset.png">
+<meta property="og:updated_time" content="2016-09-19T01:16:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Enum">
-<meta name="twitter:description" content="Simplest Enum1public enum Planet &amp;#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&amp;#125;
-Java Enums are classes that export one instance for each enumeration constant via a public s">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="记录一些平时不太清楚但又很有用的git知识
+MiscellaneousGit working environment：Workspace -&amp;gt; Staging -&amp;gt; Remote
+
+HEAD：The most recent commit on the current branch.
+ORIG_HEAD: The previous version of HEAD.
+FETCH_HEAD:">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/17/git/fast-forward-merge.png">
 
 
 
@@ -117,9 +135,9 @@ Java Enums are classes that export one instance for each enumeration constant vi
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/24/java-enum/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/17/git/"/>
 
-  <title> Java Enum | What?! </title>
+  <title> Git | What?! </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -249,7 +267,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
             
             
               
-                Java Enum
+                Git
               
             
           </h1>
@@ -261,8 +279,8 @@ Java Enums are classes that export one instance for each enumeration constant vi
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-24T20:33:39-07:00" content="2016-06-24">
-              2016-06-24
+            <time itemprop="dateCreated" datetime="2016-09-17T22:51:10-07:00" content="2016-09-17">
+              2016-09-17
             </time>
           </span>
 
@@ -275,8 +293,8 @@ Java Enums are classes that export one instance for each enumeration constant vi
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Design/" itemprop="url" rel="index">
-                    <span itemprop="name">Design</span>
+                  <a href="/categories/Log/" itemprop="url" rel="index">
+                    <span itemprop="name">Log</span>
                   </a>
                 </span>
 
@@ -308,27 +326,61 @@ Java Enums are classes that export one instance for each enumeration constant vi
       
 
       
-        <h4 id="Simplest-Enum"><a href="#Simplest-Enum" class="headerlink" title="Simplest Enum"></a>Simplest Enum</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123; MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE&#125;</span><br></pre></td></tr></table></figure>
-<p>Java Enums are classes that export one instance for each enumeration constant via a public static final field.</p>
-<h4 id="Rich-Enum-Type"><a href="#Rich-Enum-Type" class="headerlink" title="Rich Enum Type"></a>Rich Enum Type</h4><p>Here is the extended version of the simplest enum, with fields and methods.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Planet &#123;       MERCURY(3.302e+23, 2.439e6),       VENUS  (4.869e+24, 6.052e6),       EARTH  (5.975e+24, 6.378e6),       MARS   (6.419e+23, 3.393e6),       JUPITER(1.899e+27, 7.149e7),       SATURN (5.685e+26, 6.027e7),       URANUS (8.683e+25, 2.556e7),       NEPTUNE(1.024e+26, 2.477e7);       private final double mass;           // In kilograms       private final double radius;         // In meters       private final double surfaceGravity; // In m / s^2       // Universal gravitational constant in m^3 / kg s^2       private static final double G = 6.67300E-11;       // Constructor       Planet(double mass, double radius) &#123;           this.mass = mass;           this.radius = radius;           surfaceGravity = G * mass / (radius * radius);	   &#125;       public double mass()           &#123; return mass; &#125;       public double radius()         &#123; return radius; &#125;       public double surfaceGravity() &#123; return surfaceGravity; &#125;       public double surfaceWeight(double mass) &#123;           return mass * surfaceGravity;  // F = ma	   &#125; &#125;</span><br></pre></td></tr></table></figure>
-<p>How to use this Enum:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Planet.EARTH.surfaceGravity() //get the surface gravity on earth</span><br><span class="line">Planet.MARS.surfaceWeight(600.00) //get the weight on mars for a thing mass = 600kg</span><br></pre></td></tr></table></figure>
-<p>定义Planet枚举类，MERCURY等是instance，后面再申明的fields都是Planet类的成员。所以Planet其实有mass、radius、surfaceGravity三个fields，有一个Constructor。<br>在初始化MERCURY等instances时就是调用了这个constructor，所以每个instance都接收到mass和radius两个初始变量，并计算出surfaceGravity（优化而已）。<br>当然每个instance也可以调用申明的mass()、radius()、surfaceGravity()函数（Planet.EARTH.surfaceGravity()就相当于一个instance调用自己的函数, Planet.MARS.surfaceweight()同理）</p>
-<h4 id="Richest-Enum-Type"><a href="#Richest-Enum-Type" class="headerlink" title="Richest Enum Type"></a>Richest Enum Type</h4><p>The use case is you want to associate different behavior with each enum constant. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public enum Operation &#123;       PLUS   &#123; double apply(double x, double y)&#123;return x + y;&#125; &#125;,       MINUS  &#123; double apply(double x, double y)&#123;return x - y;&#125; &#125;,       TIMES  &#123; double apply(double x, double y)&#123;return x * y;&#125; &#125;,       DIVIDE &#123; double apply(double x, double y)&#123;return x / y;&#125; &#125;;       abstract double apply(double x, double y);   &#125;</span><br></pre></td></tr></table></figure>
-<p>Declare an abstract methodin the enum class and override it with a concrete method for each enum constant. So if you add another operation in the enum, you want forget to override the abstract method (Even if you forget, compiler will remind you.)</p>
-<p>每个Operation类都有抽象函数apply，作为Operation类的instance(public static final field)，PLUS等都要override这个抽象函数。</p>
-<h4 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h4><ul>
-<li><p><strong>values() and toString()</strong><br>  Every enum has a static method values() which returns an array of its enum constants in the order they were declared. <code>Planet.values()</code> returns <code>Planet[]</code> which contains Planet.MERCURY, Planet.VENUS etc. So you can do something like:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (Planet p : Planet.values) &#123;</span><br><span class="line">	System.out.println(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  The code uses toString() method and prints out the name of each planet.</p>
-<p>  toString() method returns the declared name of each enum constant, which makes it easy to use println() functions. But you can always override toString() to make it print out anything you want.</p>
+        <p>记录一些平时不太清楚但又很有用的git知识</p>
+<h3 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h3><p>Git working environment：<br>Workspace -&gt; Staging -&gt; Remote</p>
+<ul>
+<li>HEAD：The most recent commit on the current branch.</li>
+<li>ORIG_HEAD: The previous version of HEAD.</li>
+<li>FETCH_HEAD: The head of the last branch fetched and is valid only after a fetch operation.</li>
+<li>MERGE_HEAD:The tip of the other branch when in the progress of a merge.</li>
+</ul>
+<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><h4 id="Fast-forward-Merge"><a href="#Fast-forward-Merge" class="headerlink" title="Fast-forward Merge"></a>Fast-forward Merge</h4><img src="/2016/09/17/git/fast-forward-merge.png" alt="Fast Forward Merge" title="Fast Forward Merge">
+<ol>
+<li>Master branch is at commit 2. </li>
+<li>Check out a feature branch and proceed to commit 4. At the same time, no progress on master.</li>
+<li>At master branch, do <code>git merge</code>, will do a fast-forward merge: make master point to the head of feature branch.</li>
+</ol>
+<h4 id="Three-way-Merge"><a href="#Three-way-Merge" class="headerlink" title="Three-way Merge"></a>Three-way Merge</h4><img src="/2016/09/17/git/three-way-merge.png" alt="Three Way Merge" title="Three Way Merge">
+<ol>
+<li>Master branch is at commit 2.</li>
+<li>Checkout a feature branch and proceed to commit 4. At the same time, master proceeds to commit 6.</li>
+<li>At master branch, do <code>git merge</code>, cannot do a fast-forward merge in this case, need to do a 3-way merge. “Three” refers to the three red commits (the common ancestor of master and feature branches, the last commit of feature branch and the last commit of master branch). 3-way merge will create a “merge commit” and make all changes happend between 2 and 4、6 in commit 7.</li>
+</ol>
+<h3 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h3><img src="/2016/09/17/git/rebase.png" alt="Rebase" title="Rebase">
+<p>In development, we have the scenario which needs to do a three-way merge often. Rebase gives another choice in this case and will make the “log graph” more beautiful.</p>
+<p>Instead of doing <code>git merge &lt;feature branch&gt;</code> on master, do <code>git rebase</code> on feature branch. <code>git rebase</code> will:</p>
+<ol>
+<li>Reset feature branch’s head to the last commit of master.</li>
+<li>Reapply every change made in master but not in feature branch again (in this case, will re-commit 3 and 4 as 3’ and 4’). Note: since git rebase is “re-committing” so it will generate new commits for all commits in this branch.</li>
+<li>Now the commit graph becomes the third stage in the picture above, so doing a merge in master will be a fast-forward merge.</li>
+</ol>
+<p>For more usage about rebase, please refer to : <a href="https://blog.yorkxin.org/2011/07/29/git-rebase" target="_blank" rel="external">https://blog.yorkxin.org/2011/07/29/git-rebase</a></p>
+<h3 id="Diff"><a href="#Diff" class="headerlink" title="Diff"></a>Diff</h3><ul>
+<li><code>git diff</code>: Difference between urrent workspace and staging.</li>
+<li><p><code>git diff &lt;commit&gt;</code>: Difference between current workspace and this commit. </p>
+<p>  Common usgae: <code>git diff HEAD</code> difference between current workspace and current branch’s last commit</p>
 </li>
-<li><p><strong>valueOf()</strong><br>Every enum has an auto generated valueOf() method that takes in an enum constant’s name and returns the constant itself.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Planet.valueOf(&quot;EARTH&quot;)  //return Planet.EARTH</span><br></pre></td></tr></table></figure>
+<li><p><code>git diff --cached &lt;commit&gt;</code>: Difference between current staging and this commit.</p>
+<p>Common usage: <code>git diff --cached HEAD</code> or just <code>git diff --cached</code> difference between current staging and current branch’s last commit.</p>
+</li>
+<li><p><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code>: Difference between commit1 and commit2.</p>
 </li>
 </ul>
+<h3 id="Detached-Head"><a href="#Detached-Head" class="headerlink" title="Detached Head"></a>Detached Head</h3><img src="/2016/09/17/git/detached-head.png" alt="Detached Head" title="Detached Head">
+<ol>
+<li>HEAD is pointing to the latest commit of master branch (commit 4).</li>
+<li>Do <code>git checkout &lt;commit2&gt;</code> will make HEAD point to commit 2, which has no branch attached to it, so this is called “You are in a ‘detached head’”. You can treat this branch as an “anonymous” branch.</li>
+<li>If commit in this status, HEAD will continue pointing to the new commit 5.</li>
+<li>Do <code>git checkout &lt;master&gt;</code> or <code>git checkout &lt;some branch&gt;</code> to leave this detached head status. Once you left, there is no way to get back to it:(  But, if you do <code>git checkout -b &lt;new branch&gt;</code> in the detached head status, there will be a new branch attached to it, which can be used for getting back :)</li>
+</ol>
+<h3 id="Reset"><a href="#Reset" class="headerlink" title="Reset"></a>Reset</h3><img src="/2016/09/17/git/reset.png" alt="Reset" title="Reset">
+<p>General usage：<code>git reset [--hard|soft|mixed|merge|keep] &lt;commit&gt;</code> will reset current <strong>branch</strong> to certain commit and retain or discard changes in workspace and staging environment according to options.</p>
+<ul>
+<li><code>--hard</code>: Reset workspace and staging, discard all changes made after commit, point HEAD to commit.</li>
+<li><code>--soft</code>: Nothing happens for workspace and staging. Only point HEAD to commit. All changes made after commit will be in staging.</li>
+<li><code>--mixed</code>(default mode): Only reset staging but not workspace. </li>
+</ul>
+<p>Common usage:<br>After making changes in the workspace or staging, you want to discard all changes (both in workspace and staging), do <code>git reset HEAD --hard</code> :)</p>
 
       
     </div>
@@ -350,11 +402,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
       
         <div class="post-tags">
           
-            <a href="/tags/Design/" rel="tag">#Design</a>
-          
-            <a href="/tags/Effective-Java/" rel="tag">#Effective Java</a>
-          
-            <a href="/tags/Enum/" rel="tag">#Enum</a>
+            <a href="/tags/Log/" rel="tag">#Log</a>
           
         </div>
       
@@ -363,17 +411,13 @@ Java Enums are classes that export one instance for each enumeration constant vi
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/19/java-exceptions/" rel="next" title="Java Exceptions">
-                <i class="fa fa-chevron-left"></i> Java Exceptions
+              <a href="/2016/09/05/rpm-yum/" rel="next" title="RPM & YUM">
+                <i class="fa fa-chevron-left"></i> RPM & YUM
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/04/sed/" rel="prev" title="Sed">
-                Sed <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,7 +531,7 @@ Java Enums are classes that export one instance for each enumeration constant vi
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Simplest-Enum"><span class="nav-number">1.</span> <span class="nav-text">Simplest Enum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rich-Enum-Type"><span class="nav-number">2.</span> <span class="nav-text">Rich Enum Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Richest-Enum-Type"><span class="nav-number">3.</span> <span class="nav-text">Richest Enum Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other"><span class="nav-number">4.</span> <span class="nav-text">Other</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Miscellaneous"><span class="nav-number">1.</span> <span class="nav-text">Miscellaneous</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge"><span class="nav-number">2.</span> <span class="nav-text">Merge</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fast-forward-Merge"><span class="nav-number">2.1.</span> <span class="nav-text">Fast-forward Merge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Three-way-Merge"><span class="nav-number">2.2.</span> <span class="nav-text">Three-way Merge</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rebase"><span class="nav-number">3.</span> <span class="nav-text">Rebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Diff"><span class="nav-number">4.</span> <span class="nav-text">Diff</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Detached-Head"><span class="nav-number">5.</span> <span class="nav-text">Detached Head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reset"><span class="nav-number">6.</span> <span class="nav-text">Reset</span></a></li></ol></div>
             
           </div>
         </section>
